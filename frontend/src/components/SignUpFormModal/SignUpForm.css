@@ -1,0 +1,125 @@
+#sign-up-header {
+    padding: 0px 20px 10px 20px;
+    border-bottom: 1px solid lightgray;
+    margin-top: -10px;
+}
+
+form {
+    padding: 10px 20px 15px 20px;
+}
+
+#sign-up-header h2 {
+    margin-bottom: 0px;
+}
+
+#sign-up-header span {
+    color: #606770;
+    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.inputText, .inputPassword {
+    background-color: #f5f6f7;
+    border: 1px solid #ccd0d5;
+    border-radius: 5px;
+}
+
+.field, .name-field, .birthday-field, .gender-field{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.field input, .name-field input {
+    font-size: 15px;
+    line-height: 16px;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+    padding: 10px;
+}
+
+.name-field input {
+    width: 45%;
+}
+
+.field input {
+    width: 100%;
+}
+
+.birthday-field select {
+    width: 31%;
+    border: 1px solid #ccd0d5;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.birthday-field select option {
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.ind-gender-field {
+    border: 1px solid #ccd0d5;
+    border-radius: 5px;
+    padding: 10px;
+    width: 43%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ind-gender-field label {
+    box-sizing: border-box;
+    color: #1c1e21;
+    display: inline-block;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+
+.field-label {
+    color: #606770;
+    font-size: 12px;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    line-height: 20px;
+}
+
+input {
+    padding: 5px;
+}
+
+h2 {
+    color: #1c1e21;
+    font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 0px;
+}   
+
+.submit-div {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-div button {
+    background-color: #00a400;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 18px;
+    height: 36px;
+    padding: 0 32px;
+    overflow: hidden;
+    font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    min-width: 194px;
+}
+
+.submit-div button:hover {
+    background-image: linear-gradient(rgba(104, 104, 104, 0.4) 0 0);
+}
+

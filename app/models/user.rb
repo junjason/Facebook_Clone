@@ -1,11 +1,10 @@
 class User < ApplicationRecord
     has_secure_password
 
-    validates :first_name, :last_name, :email, :phone_number,
-      :birthday, :gender, :password_digest, :session_token, presence: true
-
-    validates :email, :first_name, :last_name, 
-      :phone_number, :session_token, uniqueness: true
+    validates :first_name, :last_name, :email, :birthday, 
+      :gender, :password_digest, :session_token, presence: true
+ 
+    validates :email, :phone_number, :session_token, uniqueness: true
 
     validates :email, 
       length: {in: 4..120},
@@ -15,14 +14,13 @@ class User < ApplicationRecord
       length: {in: 6..30}, allow_nil: true
     
     validates :phone_number,
-      length: {in: 10..15}
+      length: {in: 10..15 }
 
     before_validation :ensure_session_token
 
     # credential can be either phone number or email
-    def self.find_by_credentials(credential, password)
-        field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :phone_number
-        user = User.find_by(field => credential)
+    def self.find_by_credentials(email, password)
+        user = User.find_by(email: email)
     
         if user&.authenticate(password)
           return user

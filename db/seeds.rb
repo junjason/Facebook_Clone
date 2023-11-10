@@ -28,7 +28,24 @@ ApplicationRecord.transaction do
     )
   
     # More users
-    10.times do 
+    20.times do 
+        name = Faker::Name.unique.name;
+        names = name.split(' ');
+        first_name = names[0];
+        last_name = names[-1];
+        User.create!({
+            first_name: first_name,
+            last_name: last_name,
+            email: Faker::Internet.unique.email,
+            phone_number: Faker::PhoneNumber.unique.cell_phone,
+            birthday: Faker::Date.between(from: '1990-01-01', to: '2023-11-11'),
+            gender: Faker::Gender.binary_type,
+            password: 'password'
+        }) 
+    end
+
+    # More users
+    4.times do 
         name = Faker::Name.unique.name;
         names = name.split(' ');
         first_name = names[0];
