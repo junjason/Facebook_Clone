@@ -1,0 +1,35 @@
+#footer {
+    margin: 2vh 20% 0%;
+    height: 21vh;
+    bottom: 0;
+    overflow: hidden;
+}
+
+a {
+    color: inherit; 
+    text-decoration: inherit;
+}
+
+#links a {
+    margin-right: 10px;
+    color: gray;
+    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+
+#tech-stack {
+    margin: 10px 0 10px;
+}
+
+#tech-stack div {
+    color: gray;
+    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+#footer span {
+    color: gray;
+    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}

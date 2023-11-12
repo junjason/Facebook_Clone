@@ -5,19 +5,25 @@ import LoginFormPage from "./components/LoginFormPage";
 import Navigation from "./components/Navigation";
 import SidePanel from "./components/LoginFormPage/sidePanel";
 import "./App.css"
+import Footer from "./components/LoginFormPage/footer";
 
 function App() {
   return (
     <>
-      <Navigation />
-        <Switch>
-          <Route exact path="/">
-            <div id="home-page-main">
+      <Switch>
+        <Route exact path="/">
+          <div id="signed-out">
+            <div id="signed-out-main">
               <SidePanel />
               <LoginFormPage />
             </div>
-          </Route>
-        </Switch>
+            <Footer/>
+          </div>
+        </Route>
+        <Route exact path="/home">
+          <Navigation />
+        </Route>
+      </Switch>
     </>
   );
 }

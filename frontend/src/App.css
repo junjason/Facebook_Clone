@@ -1,5 +1,16 @@
-#home-page-main {
+#signed-out-main {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    background-color: #f0f2f5;
+    min-height: 67vh;
+    padding-top: 10vh;;
+    margin: 0;
+    overflow: hidden;
+}
+
+#signed-out {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
 }
 

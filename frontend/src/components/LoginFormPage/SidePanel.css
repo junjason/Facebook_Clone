@@ -1,3 +1,18 @@
 #side-panel {
-    width: 49%;
+    width: 30%;
+    margin-left: 30px;
+    margin-right: 40px;
+}
+
+#metabook-icon {
+    font-size: 30px;
+    margin-top: -20px;
+    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+    color: #1877f2;
+}
+
+#metabook-desc {
+    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: normal;
 }

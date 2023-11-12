@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./SignUpForm.css";
+import { useSelector } from "react-redux";
 
 function SignUpForm() {
     const months = [
@@ -21,15 +22,15 @@ function SignUpForm() {
     let date = new Date();
 
     const dispatch = useDispatch();
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+    const [first_name, setFirstName] = useState("");
+    const [last_name, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [confirmPassword, setConfirmPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [day, setDay] = useState(date.getDate());
     const [month, setMonth] = useState(months[date.getMonth()]);
     const [year, setYear] = useState(date.getFullYear());
-    const [birthday, setBirthday] = useState("");
+    const [birthday, setBirthday] = useState(date);
     const [gender, setGender] = useState("");
     const [errors, setErrors] = useState([]);
 
@@ -37,17 +38,14 @@ function SignUpForm() {
         e.preventDefault();
         setErrors([]);
 
-        // create birthday from day, month, year
-        // must be in the form YYYY-MM-DD
-        let bd = [];
-        bd.push(year.toString());
-        bd.push(month.toString());
-        bd.push(day.toString());
-        setBirthday(bd.join("-"));
+        if (password !== confirmPassword) {
+            setErrors(["Password and Confirm Password do not match"]);
+            return;
+        }    
 
         const user = {
-            firstName,
-            lastName,
+            first_name,
+            last_name,
             email,
             password,
             birthday,
@@ -97,37 +95,38 @@ function SignUpForm() {
         return arr;
     };
 
+
     return (
         <>
             <div id="sign-up-header">
                 <h2>Sign Up</h2>
                 <span>It's quick and easy.</span>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="sign-up-form">
                 <ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
                 </ul>
-                <div className="name-field">
+                <div className="sign-up-name-field">
                     <input
-                        className="inputText"
+                        className="sign-up-inputText"
                         type="text"
-                        value={firstName}
+                        value={first_name}
                         onChange={(e) => setFirstName(e.target.value)}
                         placeholder={'First name'}
                         required
                     />
                     <input
-                        className="inputText"
+                        className="sign-up-inputText"
                         type="text"
-                        value={lastName}
+                        value={last_name}
                         onChange={(e) => setLastName(e.target.value)}
                         placeholder={'Last name'}
                         required
                     />
                 </div>
-                <div className="field">
+                <div className="sign-up-field">
                     <input
-                        className="inputText"
+                        className="sign-up-inputText"
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -135,9 +134,9 @@ function SignUpForm() {
                         required
                     />
                 </div>
-                <div className="field">
+                <div className="sign-up-field">
                     <input
-                        className="inputPassword"
+                        className="sign-up-inputPassword"
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -145,51 +144,54 @@ function SignUpForm() {
                         required
                     />
                 </div>
-                {/* <div id="field">
-                    <input
-                        type="password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        placeholder={'Confirm password'}
-                        required
-                    />
-                </div> */}
-                <label className="field-label">Birthday</label>
-                <div className="birthday-field">
+                {password && (
+                    <div className="sign-up-field">
+                        <input
+                            className="sign-up-inputPassword"
+                            type="password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            placeholder={'Confirm password'}
+                            required
+                        />
+                    </div>
+                )}
+                <label className="sign-up-field-label">Birthday</label>
+                <div className="sign-up-birthday-field">
                     <select
                         name='month'
-                        onChange={(e) => setMonth(e.target.value)}
+                        onChange={(e) => {setMonth(e.target.value); setBirthday(year.toString()+'-'+month.toString()+'-'+day.toString())} }
                         value={month}
                     >
                         {generateMonthOptions()}
                     </select>
                     <select
                         name='day'
-                        onChange={(e) => setDay(e.target.value)}
+                        onChange={(e) => {setDay(e.target.value); setBirthday(year.toString()+'-'+month.toString()+'-'+day.toString())}}
                         value={day}
                     >
                         {generateDayOptions()}
                     </select>
                     <select
                         name='year'
-                        onChange={(e) => setYear(e.target.value)}
+                        onChange={(e) => {setYear(e.target.value); setBirthday(year.toString()+'-'+month.toString()+'-'+day.toString())}}
                         value={year}
                     >
                         {generateYearOptions()}
                     </select>
                 </div>
-                <label className="field-label">Gender</label>
-                <div className="gender-field">
-                    <div className="ind-gender-field">
+                <label className="sign-up-field-label">Gender</label>
+                <div className="sign-up-gender-field">
+                    <div className="sign-up-ind-gender-field">
                         <label>Male</label>
                         <input type="radio" name="gender" value="Male" onChange={(e) => setGender(e.target.value)} />
                     </div>
-                    <div className="ind-gender-field">
+                    <div className="sign-up-ind-gender-field">
                         <label>Female</label>
                         <input type="radio" name="gender" value="Female" onChange={(e) => setGender(e.target.value)}/>
                     </div>
                 </div>
-                <div className="submit-div">
+                <div className="sign-up-submit-div">
                     <button type="submit">Sign Up</button>
                 </div>
             </form>

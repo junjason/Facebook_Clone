@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::API
+    before_action :snake_case_params
+    before_action :attach_authenticity_token
     include ActionController::RequestForgeryProtection
     protect_from_forgery with: :exception
     rescue_from StandardError, with: :unhandled_error
     rescue_from ActionController::InvalidAuthenticityToken,
         with: :invalid_authenticity_token
-
-    before_action :snake_case_params, :attach_authenticity_token
 
     def current_user
         @current_user ||= User.find_by(session_token: session[:session_token])
@@ -50,6 +50,7 @@ class ApplicationController < ActionController::API
           render json: ['No current user']
         end
     end
+
 
     private
 

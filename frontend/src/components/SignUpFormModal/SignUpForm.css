@@ -4,7 +4,7 @@
     margin-top: -10px;
 }
 
-form {
+.sign-up-form {
     padding: 10px 20px 15px 20px;
 }
 
@@ -19,35 +19,35 @@ form {
     line-height: 24px;
 }
 
-.inputText, .inputPassword {
+.sign-up-inputText, .sign-up-inputPassword {
     background-color: #f5f6f7;
     border: 1px solid #ccd0d5;
     border-radius: 5px;
 }
 
-.field, .name-field, .birthday-field, .gender-field{
+.sign-up-field, .sign-up-name-field, .sign-up-birthday-field, .sign-up-gender-field{
     width: 400px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
 }
 
-.field input, .name-field input {
+.sign-up-field input, .sign-up-name-field input {
     font-size: 15px;
     line-height: 16px;
     font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
     padding: 10px;
 }
 
-.name-field input {
-    width: 45%;
+.sign-up-name-field input {
+    width: 43%;
 }
 
-.field input {
+.sign-up-field input {
     width: 100%;
 }
 
-.birthday-field select {
+.sign-up-birthday-field select {
     width: 31%;
     border: 1px solid #ccd0d5;
     border-radius: 5px;
@@ -55,15 +55,16 @@ form {
     font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
     font-size: 15px;
     line-height: 20px;
+    height: 36px;
 }
 
-.birthday-field select option {
+.sign-up-birthday-field select option {
     font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
     font-size: 15px;
     line-height: 20px;
 }
 
-.ind-gender-field {
+.sign-up-ind-gender-field {
     border: 1px solid #ccd0d5;
     border-radius: 5px;
     padding: 10px;
@@ -72,7 +73,7 @@ form {
     justify-content: space-between;
 }
 
-.ind-gender-field label {
+.sign-up-ind-gender-field label {
     box-sizing: border-box;
     color: #1c1e21;
     display: inline-block;
@@ -80,18 +81,15 @@ form {
     font-size: 15px;
 }
 
-.field-label {
+.sign-up-field-label {
     color: #606770;
     font-size: 12px;
     font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
     line-height: 20px;
 }
 
-input {
-    padding: 5px;
-}
 
-h2 {
+#sign-up-header h2 {
     color: #1c1e21;
     font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
     font-size: 32px;
@@ -99,12 +97,12 @@ h2 {
     margin-bottom: 0px;
 }   
 
-.submit-div {
+.sign-up-submit-div {
     display: flex;
     justify-content: center;
 }
 
-.submit-div button {
+.sign-up-submit-div button {
     background-color: #00a400;
     border: none;
     border-radius: 6px;
@@ -119,7 +117,6 @@ h2 {
     min-width: 194px;
 }
 
-.submit-div button:hover {
+.sign-up-submit-div button:hover {
     background-image: linear-gradient(rgba(104, 104, 104, 0.4) 0 0);
 }
-

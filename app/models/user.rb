@@ -4,7 +4,7 @@ class User < ApplicationRecord
     validates :first_name, :last_name, :email, :birthday, 
       :gender, :password_digest, :session_token, presence: true
  
-    validates :email, :phone_number, :session_token, uniqueness: true
+    validates :email, :session_token, uniqueness: true
 
     validates :email, 
       length: {in: 4..120},
@@ -14,7 +14,7 @@ class User < ApplicationRecord
       length: {in: 6..30}, allow_nil: true
     
     validates :phone_number,
-      length: {in: 10..15 }
+      length: {in: 10..15 }, allow_nil: true
 
     before_validation :ensure_session_token
 

@@ -8,8 +8,8 @@ function SidePanel() {
     if (!sessionUser) {
         panel = (
             <>
-                <h1>Metabook</h1>
-                <h2>Connect with friends and communities using Metabook</h2>
+                <h1 id="metabook-icon">facemash</h1>
+                <h2 id="metabook-desc">Connect with friends and communities using facemash</h2>
             </>
         )
     } 

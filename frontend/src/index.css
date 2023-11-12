@@ -1,1 +1,12 @@
 /* TODO Add site wide styles */
+html,body
+{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+body {
+    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+}
