@@ -1,13 +1,18 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-// import SignupFormPage from "./components/SignupFormPage";
+import { Route, Switch, useHistory } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import Navigation from "./components/Navigation";
 import SidePanel from "./components/LoginFormPage/sidePanel";
 import "./App.css"
 import Footer from "./components/LoginFormPage/footer";
+import { useSelector } from "react-redux";
+
 
 function App() {
+  const history = useHistory();
+  const sessionUser = useSelector(state => state.session.user);
+  if (!sessionUser) history.push('/');
+
   return (
     <>
       <Switch>
