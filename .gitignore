@@ -31,3 +31,4 @@
 # Ignore byebug history and DS_Store:
 .byebug_history
 .DS_Store
+/public
