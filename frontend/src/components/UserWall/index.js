@@ -5,6 +5,10 @@ import { useEffect } from "react";
 import { getUser} from "../../store/user";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
+import IntroContainer from "./IntroContainer";
+import FriendsContainer from "./FriendsContainer";
+import NewPostContainer from "../NewPostContainer";
+import UserWallPostContainer from "./UserWallPostContainer";
 
 const UserWall = () => {
     // retrieve user based on :userId from params
@@ -25,9 +29,18 @@ const UserWall = () => {
             {user && (
                 <WallHeader user={user} />
             )}
-            <div id="wall-bottom-half">
-
-            </div>
+            {user && (
+                <div id="wall-bottom-half">
+                    <div id="wall-bottom-left-half">
+                        <IntroContainer />
+                        <FriendsContainer />
+                    </div>
+                    <div id="wall-bottom-right-half">
+                        <NewPostContainer />
+                        <UserWallPostContainer />
+                    </div>
+                </div>
+            )}
         </>
     )
 }

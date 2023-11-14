@@ -160,7 +160,7 @@ function SignUpForm() {
                 <div className="sign-up-birthday-field">
                     <select
                         name='month'
-                        onChange={(e) => {setMonth(e.target.value); setBirthday(year.toString()+'-'+month.toString()+'-'+day.toString())} }
+                        onChange={(e) => {setMonth(e.target.value); setBirthday(year.toString()+'-'+month.toString()+'-'+day.toString())}}
                         value={month}
                     >
                         {generateMonthOptions()}

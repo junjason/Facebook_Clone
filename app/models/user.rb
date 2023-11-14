@@ -13,6 +13,8 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  pronoun         :string
+#  bio             :text
 #
 class User < ApplicationRecord
     has_secure_password
@@ -32,7 +34,7 @@ class User < ApplicationRecord
     validates :phone_number,
       length: {in: 10..15 }, allow_nil: true
 
-    before_validation :ensure_session_token
+    before_validation :ensure_session_token, :set_pronouns
 
     # Associations
     has_many :friend_connections,
@@ -47,7 +49,19 @@ class User < ApplicationRecord
       class_name: :Friend,
       dependent: :destroy
 
-
+    # Set pronouns based on gender
+    def set_pronouns
+      if self.pronoun == nil
+        if self.gender == "Male"
+          self.pronoun = "He"
+        elsif self.gender == "Female"
+          self.pronoun = "She"
+        else
+          self.pronoun = "They"
+        end 
+      end
+    end
+    
     # Rest of FIGVAPEBR
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)

@@ -10,8 +10,8 @@ class Api::FriendsController < ApplicationController
   
     def destroy
         friend = Friend.find_by(id: params[:id])
-        if friend && friend.destroy
-            render json: {"Friendship destroyed"}
+        if friend 
+            friend.destroy
         else 
             render json: {'error': "Friendship doesn't exist"}, status: 404
         end

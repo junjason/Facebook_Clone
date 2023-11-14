@@ -4,9 +4,23 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import SearchBar from '../SearchBar';
+import { useDispatch } from 'react-redux';
+import { getUser } from '../../store/user';
+import { useEffect } from 'react';
+import * as sessionActions from "../../store/session"
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+      const dispatchUser = async () => {
+        await dispatch(sessionActions.restoreSession())
+        // await dispatch(getUser(sessionUser.id));
+      }
+      
+      dispatchUser();
+  }, [dispatch])
 
   let nav;
   if (sessionUser) {

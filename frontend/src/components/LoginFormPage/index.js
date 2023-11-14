@@ -44,7 +44,7 @@ function LoginFormPage() {
   }
 
   const demoLogIn = () => {
-    return dispatch(sessionActions.login({email: 'jason@gmail.com', password:'password'}))
+    return dispatch(sessionActions.login({email:'jason@gmail.com', password:'password'}))
       .catch(async (res) => {
         let data;
         try {
