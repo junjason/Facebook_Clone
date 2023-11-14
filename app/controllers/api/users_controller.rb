@@ -3,19 +3,19 @@ class Api::UsersController < ApplicationController
 
     def create
       @user = User.new(user_params)
-      # puts "logging params"
-      p params
-      puts "logging user_params"
-      p user_params
-      p @user
       if @user.save
         login!(@user)
-        render :show
+        render :show # is this needed? you redirect to index page on front-end
       else
         render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
       end
     end
   
+    def show 
+      @user = User.find(params[:id])
+      render :show
+    end
+
     private
 
     def user_params

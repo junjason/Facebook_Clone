@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import SearchBar from '../SearchBar';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -10,7 +11,17 @@ function Navigation() {
   let nav;
   if (sessionUser) {
     nav = (
-      <ProfileButton user={sessionUser} />
+      <>
+        <div id="navigation">
+          <div id="nav-left">
+            <a href="/home"><img src="../../../img/facebook.ico" className='home-icon'/></a>
+            <SearchBar />
+          </div>
+          <div id="nav-right">
+            <ProfileButton user={sessionUser} />
+          </div>
+        </div>
+      </>
     );
   } 
 

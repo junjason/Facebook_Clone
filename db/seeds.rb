@@ -61,5 +61,29 @@ ApplicationRecord.transaction do
         }) 
     end
   
+    puts "Creating friends..."
+    # 25 users = 25 users * 24 possible friends = 600 connections
+    150.times do 
+        # get random number from 1 to 25
+        # get another random number from 1 to 25 
+            # if rand1 != rand2, i.e. different users, generate new rand2 number
+            # and
+            # if friend where friend_id: {user_id: rand1, friend_id: rand2} does not exist
+                # create friend where user_id = rand1 and friend_id = rand2
+                # and 
+                # create friend where user_id = rand2 and friend_id = rand1
+        friend_id_1 = rand(1..25)
+        friend_id_2 = rand(1..25)
+        if friend_id_1 == friend_id_2
+            while friend_id_1 == friend_id_2
+                friend_id_2 = rand(1..25)
+            end
+        end
+        if Friend.where(:user_id => friend_id_1, :friend_id => friend_id_2).blank?
+            Friend.create!(user_id: friend_id_1, friend_id: friend_id_2)
+            Friend.create!(user_id: friend_id_2, friend_id: friend_id_1)
+        end
+    end
+
     puts "Done!"
   end

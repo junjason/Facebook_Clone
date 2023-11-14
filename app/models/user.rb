@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  first_name      :string           not null
+#  last_name       :string           not null
+#  email           :string           not null
+#  phone_number    :string
+#  birthday        :date             not null
+#  gender          :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
     has_secure_password
 
@@ -18,7 +34,21 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
-    # credential can be either phone number or email
+    # Associations
+    has_many :friend_connections,
+      primary_key: :id,
+      foreign_key: :user_id,
+      class_name: :Friend,
+      dependent: :destroy
+
+    has_many :friends_of,
+      primary_key: :id,
+      foreign_key: :friend_id,
+      class_name: :Friend,
+      dependent: :destroy
+
+
+    # Rest of FIGVAPEBR
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
     

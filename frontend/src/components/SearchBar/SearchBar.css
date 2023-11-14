@@ -1,0 +1,28 @@
+#nav-search-bar {
+    margin-left: 10px;
+    border: 1px solid lightgray;
+    border-radius: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: rgb(243, 242, 242);
+}
+
+.searchBar {
+    height: 30px;
+    font-size:.9375rem;
+    border: none;
+    border-radius: 35px;
+    margin-left: 5px;
+    background-color: rgb(243, 242, 242);
+}
+
+.searchBar:focus {
+    outline: none;
+}
+
+#nav-search-bar i {
+    padding-left: 5px;
+}

@@ -1,3 +1,113 @@
+#navigation {
+  position: fixed;
+  /* border-bottom: 1px solid lightgray; */
+  width: 100%;
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .profile-dropdown {
+  list-style-type: none;
   position: absolute;
+  top: 30px;
+  right: 10px;
+  left: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #a8a8a8;
+  background-color: rgb(252, 252, 252);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.home-icon {
+  height: 45px;
+}
+
+#nav-left {
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nav-right {
+  margin-right: 15px;
+}
+
+#nav-profile-button {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-to-profile-page {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin: auto;
+  box-shadow: 0 0 10px #a8a8a8;
+  border-radius: 5px;
+  cursor: pointer;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.dropdown-to-profile-page h2 {
+  margin-left: 10px;
+  font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+.profile-dropdown-log-out-icon {
+  background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/8U1Gdsgju3S.png);
+  background-position: 0px -381px;
+  background-size: 25px 975px;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.profile-dropdown-log-out-outer-icon {
+  background-color: #d6d5d5;
+  height: 36px; 
+  width: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.profile-dropdown-log-out {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.profile-dropdown-log-out h3 {
+  margin-left: 10px;
+  font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+  font-size: .9375rem;
+  font-weight: normal;
+  margin-right: 20px;
+}
+
+#nav-profile-button img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 1px solid lightgray;
 }

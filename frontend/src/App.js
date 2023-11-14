@@ -6,12 +6,16 @@ import SidePanel from "./components/LoginFormPage/sidePanel";
 import "./App.css"
 import Footer from "./components/LoginFormPage/footer";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
+import UserWall from "./components/UserWall";
 
 
 function App() {
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   if (!sessionUser) history.push('/');
+
+  // const { userId } = useParams();
 
   return (
     <>
@@ -27,6 +31,10 @@ function App() {
         </Route>
         <Route exact path="/home">
           <Navigation />
+        </Route>
+        <Route exact path="/user/:userId">
+          <Navigation />
+          <UserWall />
         </Route>
       </Switch>
     </>
