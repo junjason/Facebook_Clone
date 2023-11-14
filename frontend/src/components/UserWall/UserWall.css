@@ -4,3 +4,13 @@
     background-color: rgb(238, 238, 238);
     height: 100vh;
 }
+
+#wall-bottom-left-half {
+    margin-left: 15%;
+    /* border: 1px solid black; */
+}
+
+#wall-bottom-right-half {
+    margin-right: 15%;
+    /* border: 1px solid black; */
+}

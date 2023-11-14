@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { getUser } from '../../store/user';
 import { useEffect } from 'react';
 import * as sessionActions from "../../store/session"
+import { useHistory } from "react-router-dom";
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -22,13 +23,18 @@ function Navigation() {
       dispatchUser();
   }, [dispatch])
 
+  const history = useHistory();
+  const redirectToHome = () => {
+    history.push("/home");
+  }
+
   let nav;
   if (sessionUser) {
     nav = (
       <>
         <div id="navigation">
           <div id="nav-left">
-            <a href="/home"><img src="../../../img/facebook.ico" className='home-icon'/></a>
+            <div id="home-icon" onClick={redirectToHome}><img src="../../../img/facebook.ico" className='home-icon'/></div>
             <SearchBar />
           </div>
           <div id="nav-right">

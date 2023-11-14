@@ -2,6 +2,8 @@ import "./WallHeader.css"
 import { useState } from "react";
 
 function WallHeader(user) {
+
+
     const [hasCoverPhoto, setHasCoverPhoto] = useState(false);
     const [coverPhotoPath, setCoverPhotoPath] = useState("../../img/cover_photo.png");
     const [profilePicturePath, setProfilePicturePath] = useState("../../img/default_profile_pic.png");

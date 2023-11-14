@@ -13,8 +13,7 @@ import UserWallPostContainer from "./UserWallPostContainer";
 const UserWall = () => {
     // retrieve user based on :userId from params
     const { userId } = useParams();
-    const user = useSelector(state => state["user"][userId]);
-
+    const user = useSelector(state => state.user[userId]);
     const dispatch = useDispatch();
     useEffect(() => {
         const dispatchUser = async () => {
@@ -32,7 +31,7 @@ const UserWall = () => {
             {user && (
                 <div id="wall-bottom-half">
                     <div id="wall-bottom-left-half">
-                        <IntroContainer />
+
                         <FriendsContainer />
                     </div>
                     <div id="wall-bottom-right-half">

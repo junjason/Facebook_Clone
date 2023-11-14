@@ -1,0 +1,42 @@
+#friends-box {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 30px;
+    width: 360px;
+    background-color: white;
+    padding-bottom: 20px;
+}
+
+#friends-box-friends img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    
+}
+
+#friends-box-friends {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.friends-box-individual-friends {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+}
+
+#friends-box-header {
+    margin: 0px 20px 0px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightgray;
+}
+
+#friends-box-header span {
+    color: gray;
+}
+
+#friends-box-header h2 {
+    margin: 10px 0px 2px;
+}
