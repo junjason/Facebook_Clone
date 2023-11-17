@@ -5,22 +5,23 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import SearchBar from '../SearchBar';
 import { useDispatch } from 'react-redux';
-import { getUser } from '../../store/user';
+import { getUser } from '../../store/users';
 import { useEffect } from 'react';
 import * as sessionActions from "../../store/session"
 import { useHistory } from "react-router-dom";
+import { getUsers } from '../../store/users';
+import { getPosts } from '../../store/posts';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
+  const users = useSelector(state => state.users);
+  const posts = useSelector(state => state.posts);
 
   const dispatch = useDispatch();
   useEffect(() => {
-      const dispatchUser = async () => {
-        await dispatch(sessionActions.restoreSession())
-        // await dispatch(getUser(sessionUser.id));
-      }
-      
-      dispatchUser();
+    dispatch(sessionActions.restoreSession());
+    dispatch(getUsers());
+    dispatch(getPosts());
   }, [dispatch])
 
   const history = useHistory();

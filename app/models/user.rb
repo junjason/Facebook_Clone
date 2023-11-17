@@ -49,6 +49,18 @@ class User < ApplicationRecord
       class_name: :Friend,
       dependent: :destroy
 
+    has_many :posts_created,
+      primary_key: :id,
+      foreign_key: :author_id,
+      class_name: :Post,
+      dependent: :destroy
+    
+    has_many :wall_posts,
+      primary_key: :id,
+      foreign_key: :user_wall_id,
+      class_name: :Post,
+      dependent: :destroy
+
     # Set pronouns based on gender
     def set_pronouns
       if self.pronoun == nil

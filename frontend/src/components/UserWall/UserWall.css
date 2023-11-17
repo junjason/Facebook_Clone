@@ -3,14 +3,16 @@
     border-top: 1px solid lightgray;
     background-color: rgb(238, 238, 238);
     height: 100vh;
+    padding: 0px 150px 0px;
+    display: flex;
+    justify-content: center;
 }
 
 #wall-bottom-left-half {
-    margin-left: 15%;
-    /* border: 1px solid black; */
+    width: 430px;
+    padding-left: 20px;
 }
 
 #wall-bottom-right-half {
-    margin-right: 15%;
-    /* border: 1px solid black; */
+    width: 650px;
 }

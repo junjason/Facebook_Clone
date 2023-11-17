@@ -1,0 +1,77 @@
+#intro-container {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 30px;
+    width: 360px;
+    background-color: white;
+    padding: 20px;
+}
+
+#intro-container span {
+    display: block;
+    margin-top: 10px;
+}
+
+#intro-container h2 {
+    margin: 0px 0px 10px;
+}
+
+#addEditBioBtn {
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: .9375rem;
+    font-weight: 600;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.bio-textarea {
+    width: 95%;
+    padding: 10px;
+    resize: none;
+    border-radius: 5px;
+    background-color: #ededed;
+    border: 1px solid lightgray;
+}
+  
+.char-count {
+    color: #555;
+    font-size: 12px;
+    margin-top: 0px !important;
+    margin-bottom: 10px;
+}
+
+#changeBioForm textarea:hover {
+    border: 1px solid rgb(0, 106, 255);
+}
+
+#changeBioForm textarea:active {
+    background-color: white;
+}
+
+.save-button{
+    background-color: rgb(0, 106, 255);
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cancel-button {
+    background-color: lightgray;
+    color: black;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+#changeBioForm {
+    margin-bottom: 0px;
+}
+

@@ -1,0 +1,6 @@
+.user-wall-post, #posts-header {
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid lightgray;
+}

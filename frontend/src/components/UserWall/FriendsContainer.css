@@ -2,16 +2,15 @@
     border: 1px solid lightgray;
     border-radius: 5px;
     margin-top: 30px;
-    width: 360px;
+    width: 400px;
     background-color: white;
     padding-bottom: 20px;
 }
 
 #friends-box-friends img {
-    width: 100px;
-    height: 100px;
+    width: 115px;
+    height: 115px;
     border-radius: 5px;
-    
 }
 
 #friends-box-friends {
@@ -19,12 +18,13 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    padding-bottom: 30px;
 }
 
 .friends-box-individual-friends {
-    width: 100px;
-    height: 100px;
-    margin-top: 30px;
+    width: 115px;
+    height: 115px;
+    margin-top: 40px;
 }
 
 #friends-box-header {
@@ -38,5 +38,13 @@
 }
 
 #friends-box-header h2 {
-    margin: 10px 0px 2px;
+    margin: 20px 0px 2px;
+}
+
+.friend-name {
+    font-size: 14px;
+    /* word-wrap: break-word; */
+    overflow-wrap: anywhere;
+    display: table;
+    margin: 0px auto;
 }

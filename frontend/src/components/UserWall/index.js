@@ -1,8 +1,8 @@
 import "./UserWall.css"
 import WallHeader from "./WallHeader";
-import { useParams } from "react-router-dom/cjs/react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { getUser} from "../../store/user";
+import { getUser} from "../../store/users";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import IntroContainer from "./IntroContainer";
@@ -13,16 +13,12 @@ import UserWallPostContainer from "./UserWallPostContainer";
 const UserWall = () => {
     // retrieve user based on :userId from params
     const { userId } = useParams();
-    const user = useSelector(state => state.user[userId]);
+    const user = useSelector(state => state.users[userId]);
     const dispatch = useDispatch();
     useEffect(() => {
-        const dispatchUser = async () => {
-            await dispatch(getUser(userId));
-        }
-        
-        dispatchUser();
-    }, [dispatch])
-
+        dispatch(getUser(userId));
+    }, [dispatch, userId])
+    
     return (
         <>
             {user && (
@@ -31,12 +27,12 @@ const UserWall = () => {
             {user && (
                 <div id="wall-bottom-half">
                     <div id="wall-bottom-left-half">
-
+                        <IntroContainer />
                         <FriendsContainer />
                     </div>
                     <div id="wall-bottom-right-half">
-                        <NewPostContainer />
-                        <UserWallPostContainer />
+                        <NewPostContainer user={user}/>
+                        <UserWallPostContainer user={user}/>
                     </div>
                 </div>
             )}

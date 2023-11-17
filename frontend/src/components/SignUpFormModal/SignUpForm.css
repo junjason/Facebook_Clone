@@ -32,6 +32,12 @@
     margin-bottom: 10px;
 }
 
+.sign-up-pronoun-field {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .sign-up-field input, .sign-up-name-field input {
     font-size: 15px;
     line-height: 16px;
@@ -58,6 +64,17 @@
     height: 36px;
 }
 
+.sign-up-pronoun-field select {
+    width: 100%;
+    border: 1px solid #ccd0d5;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 20px;
+    height: 36px;
+}
+
 .sign-up-birthday-field select option {
     font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
     font-size: 15px;
@@ -68,7 +85,7 @@
     border: 1px solid #ccd0d5;
     border-radius: 5px;
     padding: 10px;
-    width: 43%;
+    width: 26% !important;
     display: flex;
     justify-content: space-between;
 }
@@ -88,6 +105,12 @@
     line-height: 20px;
 }
 
+.sign-up-pronoun-label {
+    color: #606770;
+    font-size: 12px;
+    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+    line-height: 20px;
+}
 
 #sign-up-header h2 {
     color: #1c1e21;
@@ -121,3 +144,6 @@
     background-image: linear-gradient(rgba(104, 104, 104, 0.4) 0 0);
 }
 
+#gender-custom-field {
+    margin-top: 10px;
+}

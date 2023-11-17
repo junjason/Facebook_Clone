@@ -22,7 +22,7 @@ ApplicationRecord.transaction do
         last_name: 'Jun',
         email: 'jason@gmail.com',
         phone_number: '555-555-5555',
-        birthday: Faker::Date.between(from: '1990-01-01', to: '2023-11-11'),
+        birthday: Faker::Date.between(from: '1990-01-01', to: '2010-11-11'),
         gender: 'Male', 
         password: 'password'
     )
@@ -82,6 +82,16 @@ ApplicationRecord.transaction do
         if Friend.where(:user_id => friend_id_1, :friend_id => friend_id_2).blank?
             Friend.create!(user_id: friend_id_1, friend_id: friend_id_2)
             Friend.create!(user_id: friend_id_2, friend_id: friend_id_1)
+        end
+    end
+
+    puts "Creating posts..."
+    100.times do 
+        author_id = rand(1..25)
+        user_wall_id = rand(1..25)
+        if Post.where(:author_id => author_id, :user_wall_id => user_wall_id).blank?
+            Post.create!(body: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true, random_sentences_to_add: 4),
+            author_id: author_id, user_wall_id: user_wall_id)
         end
     end
 

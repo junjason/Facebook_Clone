@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_14_191131) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_17_010627) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,26 +24,38 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_14_191131) do
     t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.text "body", null: false
+    t.bigint "author_id", null: false
+    t.bigint "user_wall_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_posts_on_author_id"
+    t.index ["user_wall_id"], name: "index_posts_on_user_wall_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "email", null: false
     t.string "phone_number"
     t.date "birthday", null: false
-    t.string "gender", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "pronoun"
     t.text "bio"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.string "gender"
+    t.string "email"
     t.index ["first_name"], name: "index_users_on_first_name"
     t.index ["last_name"], name: "index_users_on_last_name"
     t.index ["phone_number"], name: "index_users_on_phone_number", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
+    t.check_constraint "email IS NOT NULL OR phone_number IS NOT NULL", name: "email_or_phone_required"
   end
 
   add_foreign_key "friends", "users"
   add_foreign_key "friends", "users", column: "friend_id"
+  add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "posts", "users", column: "user_wall_id"
 end

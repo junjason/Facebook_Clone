@@ -32,6 +32,7 @@ function SignUpForm() {
     const [year, setYear] = useState(date.getFullYear());
     const [birthday, setBirthday] = useState(date);
     const [gender, setGender] = useState("");
+    const [pronoun, setPronoun] = useState("");
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = (e) => {
@@ -43,13 +44,24 @@ function SignUpForm() {
             return;
         }    
 
+        // add logic to pronoun based on gender
+        if (pronoun === "") {
+            if (gender === "Male") {
+                pronoun = "He"
+            }
+            else if (gender === "Female") {
+                pronoun = "She"
+            }
+        }
+
         const user = {
             first_name,
             last_name,
             email,
             password,
             birthday,
-            gender
+            gender,
+            pronoun
         }
 
         return dispatch(sessionActions.signup(user))
@@ -95,6 +107,13 @@ function SignUpForm() {
         return arr;
     };
 
+    const generatePronounOptions = () => {
+        const arr = [];
+        arr.push(<option value="She">She: "Wish her a happy birthday!"</option>);
+        arr.push(<option value="He">He: "Wish him a happy birthday!"</option>);
+        arr.push(<option value="They">They: "Wish them a happy birthday!"</option>);
+        return arr;
+    };
 
     return (
         <>
@@ -190,7 +209,37 @@ function SignUpForm() {
                         <label>Female</label>
                         <input type="radio" name="gender" value="Female" onChange={(e) => setGender(e.target.value)}/>
                     </div>
+                    <div className="sign-up-ind-gender-field">
+                        <label>Custom</label>
+                        <input type="radio" name="gender" value="Custom" onChange={(e) => setGender(e.target.value)}/>
+                    </div>
                 </div>
+                {gender === "Custom" && (
+                    <>
+                        <div className="sign-up-pronoun-field">
+                            <select
+                                className=""// add styling
+                                name='year'
+                                onChange={(e) => setPronoun(e.target.value)}
+                                value={year}
+                            >
+                                {generatePronounOptions()}
+                            </select>
+                        </div>
+                        <label className="sign-up-pronoun-label">Your pronoun is visible to everyone.</label>
+                    </>
+                )}
+                {gender === "Custom" && (
+                    <div className="sign-up-field" id="gender-custom-field">
+                        <input
+                            className="sign-up-inputText"
+                            type="text"
+                            value=""
+                            onChange={(e) => setGender(e.target.value)}
+                            placeholder={'Gender (optional)'}
+                        />
+                    </div>
+                )}
                 <div className="sign-up-submit-div">
                     <button type="submit">Sign Up</button>
                 </div>
