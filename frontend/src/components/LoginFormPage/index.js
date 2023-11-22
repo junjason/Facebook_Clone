@@ -43,8 +43,24 @@ function LoginFormPage() {
     }
   }
 
-  const demoLogIn = () => {
-    return dispatch(sessionActions.login({email:'jason@gmail.com', password:'password'}))
+  const demoLogInOne = () => {
+    return dispatch(sessionActions.login({email:'buddy@gmail.com', password:'password'}))
+      .catch(async (res) => {
+        let data;
+        try {
+          // .clone() essentially allows you to read the response body twice
+          data = await res.clone().json();
+        } catch {
+          data = await res.text(); // Will hit this case if, e.g., server is down
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
+  }
+
+  const demoLogInTwo = () => {
+    return dispatch(sessionActions.login({email:'papaelf@gmail.com', password:'password'}))
       .catch(async (res) => {
         let data;
         try {
@@ -90,7 +106,10 @@ function LoginFormPage() {
             </div>
           </form>
           <div id="demo-user-log-in-button">
-            <button onClick={demoLogIn}>Demo User Log In</button>
+            <button onClick={demoLogInOne}>Demo User 1 Log In</button>
+          </div>
+          <div id="demo-user-log-in-button">
+            <button onClick={demoLogInTwo}>Demo User 2 Log In</button>
           </div>
           <div id="sign-up-button">
             {renderSignUpButton()}

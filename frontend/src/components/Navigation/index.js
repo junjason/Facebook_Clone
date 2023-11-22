@@ -4,26 +4,12 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import SearchBar from '../SearchBar';
-import { useDispatch } from 'react-redux';
-import { getUser } from '../../store/users';
-import { useEffect } from 'react';
-import * as sessionActions from "../../store/session"
 import { useHistory } from "react-router-dom";
-import { getUsers } from '../../store/users';
-import { getPosts } from '../../store/posts';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
-  const users = useSelector(state => state.users);
-  const posts = useSelector(state => state.posts);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(sessionActions.restoreSession());
-    dispatch(getUsers());
-    dispatch(getPosts());
-  }, [dispatch])
-
+  // const user = useSelector(state => state.users[sessionUser.id]);
   const history = useHistory();
   const redirectToHome = () => {
     history.push("/home");
@@ -37,6 +23,11 @@ function Navigation() {
           <div id="nav-left">
             <div id="home-icon" onClick={redirectToHome}><img src="../../../img/facebook.ico" className='home-icon'/></div>
             <SearchBar />
+          </div>
+          <div id="home-button">
+            <Link to="/home" id="home-button-icon" onClick={redirectToHome}>
+              <img src="../../../img/home_icon.png" alt="Home" className='home-icon' />
+            </Link>
           </div>
           <div id="nav-right">
             <ProfileButton user={sessionUser} />

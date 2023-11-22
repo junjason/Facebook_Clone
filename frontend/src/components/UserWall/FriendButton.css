@@ -1,0 +1,25 @@
+.facebook-friend-btn button, .facebook-friends-dropdown button {
+    background-color: #1877f2; /* Facebook blue */
+    color: #fff;
+    padding: 8px 12px;
+    margin-right: 8px;
+    border: none;
+    z-index: 1;
+    border-radius: 5px;
+    /* cursor: pointer; */
+    /* right: 0; */
+}
+
+.facebook-friend-btn {
+    position: absolute;
+    right: 0;
+    margin-top: -50px;
+    z-index: 1;
+}
+
+.facebook-disabled-btn {
+    background-color: #dfe3ef !important; /* Light grey */
+    color: #808080 !important; /* Dark grey */
+    cursor: not-allowed;
+}
+  

@@ -37,6 +37,9 @@ class User < ApplicationRecord
     before_validation :ensure_session_token, :set_pronouns
 
     # Associations
+    has_one_attached :profile_photo
+    has_one_attached :cover_photo
+
     has_many :friend_connections,
       primary_key: :id,
       foreign_key: :user_id,
@@ -61,6 +64,23 @@ class User < ApplicationRecord
       class_name: :Post,
       dependent: :destroy
 
+    has_many :friends,
+      through: :friend_connections,
+      source: :friend
+
+    has_many :sent_friend_requests, 
+      class_name: :FriendRequest, 
+      foreign_key: :requester_id, 
+      primary_key: :id,
+      dependent: :destroy
+
+    has_many :received_friend_requests, 
+      class_name: :FriendRequest, 
+      foreign_key: :recipient_id, 
+      primary_key: :id,
+      dependent: :destroy
+    
+
     # Set pronouns based on gender
     def set_pronouns
       if self.pronoun == nil
@@ -73,7 +93,37 @@ class User < ApplicationRecord
         end 
       end
     end
-    
+
+    def friends?(user_id)
+      if Friend.where(user_id: self.id, friend_id: user_id).exists?
+        return "True"
+      elsif FriendRequest.where(requester_id: self.id, recipient_id: user_id).exists?
+        return "Sent"
+      elsif FriendRequest.where(requester_id: user_id, recipient_id: self.id).exists?
+        return "Received"
+      else 
+        return "False"
+      end
+    end
+
+    def friend_request_id(user_id)
+      if self.friends?(user_id) == "Sent" 
+        fr = FriendRequest.where(requester_id: self.id, recipient_id: user_id).limit(1);
+        return fr.ids
+      elsif self.friends?(user_id) == "Received"
+        fr = FriendRequest.where(requester_id: user_id, recipient_id: self.id).limit(1);
+        return fr.ids
+      end
+    end
+
+    def friend_id(user_id)
+      friend_obj = nil
+      if Friend.where(user_id: self.id, friend_id: user_id).exists?
+        friend_obj = Friend.where(user_id: self.id, friend_id: user_id).limit(1)
+        return friend_obj.first.id
+      end
+    end
+
     # Rest of FIGVAPEBR
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)

@@ -4,11 +4,14 @@ import session from './session'
 import sessionReducer from './session';
 import usersReducer from './users';
 import postsReducer from './posts';
+import searchReducer from './search';
+// import friendRequestsReducer from './friendRequest';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   users: usersReducer,
-  posts: postsReducer
+  posts: postsReducer,
+  search: searchReducer
 });
 
 let enhancer;

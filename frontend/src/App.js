@@ -8,14 +8,13 @@ import Footer from "./components/LoginFormPage/footer";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import UserWall from "./components/UserWall";
+import NewsFeed from "./components/NewsFeed";
 
 
 function App() {
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   if (!sessionUser) history.push('/');
-
-  // const { userId } = useParams();
 
   return (
     <>
@@ -31,6 +30,7 @@ function App() {
         </Route>
         <Route exact path="/home">
           <Navigation />
+          <NewsFeed />
         </Route>
         <Route exact path="/user/:userId">
           <Navigation />

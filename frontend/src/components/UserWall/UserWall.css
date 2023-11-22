@@ -2,17 +2,22 @@
     margin-top: 30px;
     border-top: 1px solid lightgray;
     background-color: rgb(238, 238, 238);
-    height: 100vh;
     padding: 0px 150px 0px;
     display: flex;
     justify-content: center;
+    overflow: auto;
 }
 
 #wall-bottom-left-half {
     width: 430px;
     padding-left: 20px;
+    position: sticky;
+    top: 0;
 }
 
 #wall-bottom-right-half {
     width: 650px;
 }
+
+
+

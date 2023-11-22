@@ -10,3 +10,9 @@ html,body
 body {
     font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
 }
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

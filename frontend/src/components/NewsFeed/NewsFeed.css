@@ -1,0 +1,32 @@
+/* .news-feed-infinite-scroll-container {
+    padding-top: 60px;
+} */
+  
+.news-feed-post-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+  
+.news-feed-post-container img {
+    width: 30px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+    border-radius: 50%; /* Make the image round */
+    margin-right: 5px; /* Add some spacing to the right of the image */
+}
+
+#home-page-main {
+    padding-top: 80px;
+}
+
+#home-page-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.news-feed-infinite-scroll-container {
+    width: 100%;
+    max-width: 600px; /* Adjust the max-width based on your design */
+    margin-top: 16px;
+}

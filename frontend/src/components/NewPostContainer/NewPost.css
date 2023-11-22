@@ -1,0 +1,38 @@
+/* NewPost.css */
+
+#newPostContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+  
+  #newPostContainer label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  #newPostContainer textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none; /* Disable textarea resizing */
+    overflow: auto; /* Add scrollbars if content overflows */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+  
+  #newPostContainer button {
+    background-color: #1877f2; /* Facebook's blue color */
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #newPostContainer button:hover {
+    background-color: #145493; /* Darker blue on hover */
+  }
+  

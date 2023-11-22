@@ -111,3 +111,7 @@
   border-radius: 50%;
   border: 1px solid lightgray;
 }
+
+#home-button img {
+  margin-right: 240px;
+}

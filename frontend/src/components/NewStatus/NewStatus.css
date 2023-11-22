@@ -1,0 +1,38 @@
+/* NewStatus.css */
+
+#new-status-container {
+    width: 100%;
+    max-width: 560px; /* Adjust the max-width as needed */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    background-color: #fff; /* White background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional box shadow */
+    border-radius: 8px;
+  }
+  
+  #new-status-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #new-status-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+    box-sizing: border-box; /* Add this line to prevent overflowing */
+  }
+  
+  #new-status-container button {
+    background-color: #1877f2; /* Facebook blue color */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Add more styling as needed */
+  

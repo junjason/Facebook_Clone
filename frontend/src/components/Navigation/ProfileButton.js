@@ -43,20 +43,29 @@ function ProfileButton({ user }) {
     history.push(`/user/${user.id}`)
   }
 
+  const handlePPError = (event) => {
+    // Replace the src attribute with the backup image URL
+    event.target.src =process.env.PUBLIC_URL + "/img/default_profile_pic.png";
+  };
+
   return (
     <>
       <div id="nav-profile-button">
         <button onClick={openMenu} id="nav-profile-button">
           {/* add user profile photo here */}
           {/* <img src=""/> */}
-          <img src={profilePicturePath}/>
+          {user && user.profile_photo_url && (
+            <img src={user?.profile_photo_url} onError={handlePPError} />
+          )}
         </button>
         {showMenu && (
           <ul className="profile-dropdown">
             <div>
               <div onClick={redirectToProfilePage} className="dropdown-to-profile-page">
                 {/* <img src=""/> */}
-                <img src={profilePicturePath}/>
+                {user && user.profile_photo_url && (
+                  <img src={user?.profile_photo_url} onError={handlePPError} />
+                )}
                 <h2>{user.first_name}&nbsp;{user.last_name}</h2>
               </div>
             </div>
