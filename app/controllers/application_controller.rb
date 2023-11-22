@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+    before_action :authenticate_user!
     before_action :snake_case_params
     before_action :attach_authenticity_token
     include ActionController::RequestForgeryProtection

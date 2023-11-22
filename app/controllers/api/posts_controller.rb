@@ -1,4 +1,5 @@
 class Api::PostsController < ApplicationController
+    before_action :authenticate_user!
     wrap_parameters include: Post.attribute_names + ['author_id'] + ['user_wall_id']
 
     def create
