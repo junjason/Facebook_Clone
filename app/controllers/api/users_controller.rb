@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+    before_action :authenticate_user!
     wrap_parameters include: User.attribute_names + ['password']
 
     def create
