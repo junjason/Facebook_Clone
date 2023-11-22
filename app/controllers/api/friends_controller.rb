@@ -1,4 +1,5 @@
 class Api::FriendsController < ApplicationController  
+    before_action :require_logged_in, only: [:create, :destroy]
     def create
         friend = Friend.new(friend_params)
         if friend.save

@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :require_logged_in, only: [:create, :index, :show, :update, :destroy]
     wrap_parameters include: Post.attribute_names + ['author_id'] + ['user_wall_id']
 
     def create

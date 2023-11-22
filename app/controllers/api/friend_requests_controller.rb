@@ -1,4 +1,5 @@
 class Api::FriendRequestsController < ApplicationController  
+    before_action :require_logged_in, only: [:create, :update, :destroy]
     def create
         existing_request = FriendRequest.find_by(friend_request_params)
     

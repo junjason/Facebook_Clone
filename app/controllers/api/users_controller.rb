@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-    before_action :authenticate_user!
+    before_action :require_logged_in, only: [:show, :update, :search]
     wrap_parameters include: User.attribute_names + ['password']
 
     def create
