@@ -11,11 +11,7 @@ function UserWallPostContainer() {
     const { userId } = useParams();
     const currentUser = useSelector(state => state.session.user);
     const user = useSelector((state) => state.users[userId]);
-    // const posts = useSelector((state) => state.posts?.post_ids?.map((post_id) => state.posts[post_id]));
     const allPosts = useSelector((state) => user?.wall_posts_ids?.map((wall_post_id) => state.posts[wall_post_id]));
-    
-    const [visiblePosts, setVisiblePosts] = useState(10); // Initially show 10 posts
-    const contentRef = useRef(null);
 
     const [editedBody, setEditedBody] = useState('');
     const [editingPostId, setEditingPostId] = useState(null);
@@ -36,42 +32,13 @@ function UserWallPostContainer() {
         await dispatch(getUser(userId));
     };
 
-
-    useEffect(() => {
-        const handleScroll = () => {
-        const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-
-        if (scrollTop + clientHeight >= scrollHeight - 10) {
-            // When scrolling to the bottom, increment the number of visible posts
-            setVisiblePosts((prev) => prev + 10);
-        }
-        };
-
-        document.addEventListener("scroll", handleScroll);
-
-        return () => {
-            document.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    // useEffect(() => {
-    //     // Refetch posts when allPosts changes
-    //     dispatch(getUser(userId));
-    // }, [dispatch);
-
-    // debugger;
-
-    // useEffect(() => {
-    // }, [])
-    // debugger;
-    // console.log(allPosts);
     return (
         <>
         <div id="posts-header">
             <h2>Posts</h2>
         </div>
         <div id="user-wall-post-container">
-        {allPosts?.slice(0, visiblePosts).map((post) => {
+        {allPosts?.map((post) => {
             if (post) 
             return (
             <div className="user-wall-post" key={post?.id}>
@@ -112,7 +79,6 @@ function UserWallPostContainer() {
             </div>
         )})}
         </div>
-        <div ref={contentRef}></div>
         </>
     );
 }

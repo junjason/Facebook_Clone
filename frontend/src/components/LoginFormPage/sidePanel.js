@@ -9,7 +9,7 @@ function SidePanel() {
         panel = (
             <>
                 <h1 id="metabook-icon">facebook</h1>
-                <h2 id="metabook-desc">Connect with friends and the world around you with facemash</h2>
+                <h2 id="metabook-desc">Connect with friends and the world around you with facebook</h2>
             </>
         )
     } 

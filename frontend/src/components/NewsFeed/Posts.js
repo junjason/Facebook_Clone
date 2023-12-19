@@ -5,12 +5,9 @@ import { updatePostThunk, deletePost } from '../../store/posts';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 import "./Posts.css"
 
-const Posts = ({ posts, visiblePosts, contentRef }) => {
+const Posts = ({ posts }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session.user);
-
-  const postsToRender = posts?.slice(0, visiblePosts);
-  // debugger;
 
   const [editedBody, setEditedBody] = useState('');
   const [editingPostId, setEditingPostId] = useState(null);
@@ -31,8 +28,7 @@ const Posts = ({ posts, visiblePosts, contentRef }) => {
 
   return (
     <>
-      <div ref={contentRef}></div>
-      {postsToRender.map((post) => (
+      {posts.map((post) => (
         <div key={post?.id} className="news-feed-post-container">
             <h3>
                 <Link to={`/user/${post?.author_id}`}>

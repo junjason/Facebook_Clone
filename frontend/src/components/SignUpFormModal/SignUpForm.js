@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./SignUpForm.css";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 function SignUpForm() {
     const months = [
@@ -32,10 +33,12 @@ function SignUpForm() {
     const [year, setYear] = useState(date.getFullYear());
     const [birthday, setBirthday] = useState(date);
     const [gender, setGender] = useState("");
+    const [customGender, setCustomGender] = useState("");
     const [pronoun, setPronoun] = useState("");
     const [errors, setErrors] = useState([]);
 
-    const handleSubmit = (e) => {
+    const history = useHistory();
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors([]);
 
@@ -47,11 +50,15 @@ function SignUpForm() {
         // add logic to pronoun based on gender
         if (pronoun === "") {
             if (gender === "Male") {
-                pronoun = "He"
+                setPronoun("He");
             }
             else if (gender === "Female") {
-                pronoun = "She"
+                setPronoun("She");
             }
+        }
+
+        if (gender === "Custom") {
+            setGender(customGender);
         }
 
         const user = {
@@ -64,19 +71,8 @@ function SignUpForm() {
             pronoun
         }
 
-        return dispatch(sessionActions.signup(user))
-        .catch(async (res) => {
-            let data;
-            try {
-            // .clone() essentially allows you to read the response body twice
-            data = await res.clone().json();
-            } catch {
-            data = await res.text(); // Will hit this case if, e.g., server is down
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
-        });
+        await dispatch(sessionActions.signup(user))
+        history.push('/home');
     };
 
     const generateYearOptions = () => {
@@ -179,21 +175,21 @@ function SignUpForm() {
                 <div className="sign-up-birthday-field">
                     <select
                         name='month'
-                        onChange={(e) => {setMonth(e.target.value); setBirthday(year.toString()+'-'+month.toString()+'-'+day.toString())}}
+                        onChange={(e) => {setMonth(e.target.value); setBirthday(year.toString()+'-'+e.target.value.toString()+'-'+day.toString())}}
                         value={month}
                     >
                         {generateMonthOptions()}
                     </select>
                     <select
                         name='day'
-                        onChange={(e) => {setDay(e.target.value); setBirthday(year.toString()+'-'+month.toString()+'-'+day.toString())}}
+                        onChange={(e) => {setDay(e.target.value); setBirthday(year.toString()+'-'+month.toString()+'-'+e.target.value.toString())}}
                         value={day}
                     >
                         {generateDayOptions()}
                     </select>
                     <select
                         name='year'
-                        onChange={(e) => {setYear(e.target.value); setBirthday(year.toString()+'-'+month.toString()+'-'+day.toString())}}
+                        onChange={(e) => {setYear(e.target.value); setBirthday(e.target.value.toString()+'-'+month.toString()+'-'+day.toString())}}
                         value={year}
                     >
                         {generateYearOptions()}
@@ -221,7 +217,7 @@ function SignUpForm() {
                                 className=""// add styling
                                 name='year'
                                 onChange={(e) => setPronoun(e.target.value)}
-                                value={year}
+                                value={pronoun}
                             >
                                 {generatePronounOptions()}
                             </select>
@@ -234,8 +230,8 @@ function SignUpForm() {
                         <input
                             className="sign-up-inputText"
                             type="text"
-                            value=""
-                            onChange={(e) => setGender(e.target.value)}
+                            value={customGender}
+                            onChange={(e) => setCustomGender(e.target.value)}
                             placeholder={'Gender (optional)'}
                         />
                     </div>
