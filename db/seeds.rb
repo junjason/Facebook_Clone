@@ -178,7 +178,7 @@ require "open-uri"
     #         author_id: author_id, user_wall_id: user_wall_id)
     #     end
     # end
-    250.times do
+    75.times do
         author_id = rand(1..26)
         user_wall_id = rand(1..26)
         unless Post.exists?(author_id: author_id, user_wall_id: user_wall_id)
