@@ -40,22 +40,22 @@ To run, download the demo.
 
 ## Notable Highlights
 ![Splash](./frontend/public/img/splash.png)
-![Sign-Up](./frontend/img/sign-up.png)
+![Sign-Up](./frontend/public/img/sign-up.png)
 <br>Picture perfect splash page and sign-up<br>
 
-![Search-Bar](./frontend/img/search-bar.gif)
+![Search-Bar](./frontend/public/img/search-bar.gif)
 <br>*Utilizing Search Bar*<br>
 <br>*Home Page & User Profile*<br>
 
 ## Important Code Snippets
 1. Learning to structure jbuilder correctly to manage a normalized redux state for performance and scalability
-- ![Jbuilder](./frontend/img/user-jbuilder.png)
+- ![Jbuilder](./frontend/public/img/user-jbuilder.png)
 
 2. Friend Request routes/controller
-- ![Friend-Request-Controller](./frontend/img/friend-request-routes.png)
+- ![Friend-Request-Controller](./frontend/public/img/friend-request-routes.png)
 
 3. Search Bar Reducer
-- ![Search-Bar-Reducer](./frontend/img/searchbar-reducer.png)
+- ![Search-Bar-Reducer](./frontend/public/img/searchbar-reducer.png)
 
 <br><br>
 
