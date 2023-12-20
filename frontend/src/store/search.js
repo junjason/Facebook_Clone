@@ -10,7 +10,6 @@ const receiveUsers = (users) => ({
 
 export const getSearchUsers = (searchQuery = '') => async (dispatch) => {
     if (!searchQuery.trim()) {
-      // Handle the case where searchQuery is empty
       return;
     }
   
@@ -33,3 +32,4 @@ const searchReducer = (state = {}, action) => {
 }
 
 export default searchReducer;
+

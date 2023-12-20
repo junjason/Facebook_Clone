@@ -1,24 +1,62 @@
-# README
+## Overview
+A clone of facebook built using ruby on rails for the backend, PostgreSQL for the database, and React for the frontend with Redux state management on the frontend.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+👉
+[Live Demo](https://facebook-i69a.onrender.com/)
+👈
+<br>
 
-Things you may want to cover:
+## Setup
+To run, download the demo.
 
-* Ruby version
+1. Open up terminal in the root directory
+2. cd into the frontend and run 'npm install'
+3. run 'npm start' from the frontend
+4. cd back to root and run 'rails s'
+5. demo should be available on localhost:3000/
 
-* System dependencies
+## Features Implemented
+1. User Auth
+2. User Profile Page
+3. Posting on each other's walls (CRUD)
+4. Friending
+5. NewsFeed
+6. Search Bar for users
+<br>
 
-* Configuration
+## Features to implement later
+1. Comments on posts (CRUD)
+2. Likes on comments and posts
+3. Notifications
+4. Pictures for posts
+5. Messaging using WebSockets and Active Cable
 
-* Database creation
+## Tech Stack
+- PostgreSQL
+- Ruby on Rails
+- React.js
+- Redux
+<br>
 
-* Database initialization
+## Notable Highlights
+![Splash](./frontend/src/img/splash.png)
+![Sign-Up](./frontend/src/img/sign-up.png)
+<br>Picture perfect splash page and sign-up<br>
 
-* How to run the test suite
+![Search-Bar](./frontend/src/img/search-bar.gif)
+<br>*Utilizing Search Bar*<br>
+<br>*Home Page & User Profile*<br>
 
-* Services (job queues, cache servers, search engines, etc.)
+## Important Code Snippets
+1. Learning to structure jbuilder correctly to manage a normalized redux state for performance and scalability
+- ![Jbuilder](./frontend/src/img/user-jbuilder.png)
 
-* Deployment instructions
+2. Friend Request routes/controller
+- ![Friend-Request-Controller](./frontend/src/img/friend-request-routes.png)
 
-* ...
+3. Search Bar Reducer
+- ![Search-Bar-Reducer](./frontend/src/img/searchbar-reducer.png)
+
+<br><br>
+
+
