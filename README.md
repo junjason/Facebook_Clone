@@ -39,7 +39,7 @@ To run, download the demo.
 <br>
 
 ## Notable Highlights
-![Splash](./frontend/img/splash.png)
+![Splash](./frontend/public/img/splash.png)
 ![Sign-Up](./frontend/img/sign-up.png)
 <br>Picture perfect splash page and sign-up<br>
 
