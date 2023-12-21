@@ -10,9 +10,9 @@ A clone of facebook built using ruby on rails for the backend, PostgreSQL for th
 To run, download the demo.
 
 1. Open up terminal in the root directory
-2. cd into the frontend and run 'npm install'
-3. run 'npm start' from the frontend
-4. cd back to root and run 'rails s'
+2. cd into the frontend and run `npm install`
+3. run `npm start` from the frontend
+4. cd back to root and run `rails s`
 5. demo should be available on localhost:3000/
 
 ## Features Implemented
