@@ -27,6 +27,7 @@
 
 .home-icon {
   height: 45px;
+  cursor: pointer;
 }
 
 #nav-left {
